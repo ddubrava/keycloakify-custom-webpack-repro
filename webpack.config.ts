@@ -9,7 +9,6 @@ const distPath = path.resolve(__dirname, 'build');
 
 // eslint-disable-next-line no-restricted-exports -- webpack requires default export
 export default {
-    mode: isProductionMode ? 'production' : 'development',
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     module: {
         rules: [
@@ -23,7 +22,6 @@ export default {
                 use: [
                     'style-loader',
                     'css-loader',
-                    'postcss-loader',
                 ],
             },
             {
@@ -35,12 +33,6 @@ export default {
     plugins: [
         new HtmlWebpackPlugin(),
     ].filter(Boolean),
-    // resolve: {
-    //     alias: {
-    //         '@': path.resolve('src'),
-    //     },
-    //     extensions: ['.tsx', '.ts', '.js'],
-    // },
     output: {
         publicPath: '/',
         filename: 'bundle.js',
@@ -48,9 +40,6 @@ export default {
         clean: true,
     },
     resolve: {
-        alias: {
-            '@': path.resolve('src'),
-        },
         extensions: ['.tsx', '.ts', '.js'],
     },
     devServer: {

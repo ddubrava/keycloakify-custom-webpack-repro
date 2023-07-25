@@ -9,9 +9,8 @@
     },
     "scripts": {
         "postinstall": "copy-keycloak-resources-to-public",
-        "webpack": "cross-env TS_NODE_PROJECT='../tsconfig-for-webpack-config.json' webpack",
-        "start": "npm run webpack -- serve",
-        "build": "npm run webpack",
+        "start": "webpack serve --mode development",
+        "build": "webpack",
         "build-keycloak-theme": "npm run build && keycloakify",
         "storybook": "start-storybook -p 6006"
     },
